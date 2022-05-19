@@ -1,0 +1,32 @@
+<%= form_with url: "/tv_shows/search", method: :get do |form| %>
+    <%= form.label :query, "Buscar película o serie:" %>
+    <%= form.text_field :query %>
+    <%= form.submit "Buscar" %>
+<% end %>
+
+<% if @search %>
+
+<p>
+    <strong>Name:</strong>
+    <%= @search.name %>
+</p>
+
+<p>
+    <strong>Summary:</strong>
+    <%#= @search.summary %>
+</p>
+
+<p>
+    <strong>Release date:</strong>
+    <%= @search.release_date %>
+</p>
+
+<p>
+    <strong>Rating:</strong>
+    <%= @search.rating %>
+</p>
+<% else %>
+  <%= "***Ningun dato encontrado***" %>
+<% end %>
+
+<%= link_to 'Back', tv_shows_path %>
